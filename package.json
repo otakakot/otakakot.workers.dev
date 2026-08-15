@@ -1,0 +1,12 @@
+{
+  "name": "otakakot.workers.dev",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "go run github.com/syumai/workers/cmd/workers-assets-gen -mode=go && GOOS=js GOARCH=wasm go build -o ./build/app.wasm .",
+    "dev": "wrangler dev"
+  },
+  "devDependencies": {
+    "wrangler": "^4.123.0"
+  }
+}

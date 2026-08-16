@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "gen": "go tool github.com/oapi-codegen/oapi-codegen/v2/cmd/oapi-codegen -generate types -o internal/api/types.gen.go -package api api/openapi.yaml && go tool github.com/oapi-codegen/oapi-codegen/v2/cmd/oapi-codegen -generate spec -o internal/api/spec.gen.go -package api api/openapi.yaml && go tool github.com/oapi-codegen/oapi-codegen/v2/cmd/oapi-codegen -generate std-http,strict-server -o internal/api/server.gen.go -package api api/openapi.yaml",
     "build": "go run github.com/syumai/workers/cmd/workers-assets-gen -mode=go && GOOS=js GOARCH=wasm go build -o ./build/app.wasm .",
     "dev": "bash scripts/dev.sh",
     "deploy": "bash scripts/deploy.sh"

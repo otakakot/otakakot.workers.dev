@@ -13,6 +13,8 @@ servers:
 tags:
   - name: api
     description: API
+  - name: auth
+    description: Auth
 paths:
   /:
     get:
@@ -24,5 +26,153 @@ paths:
       responses:
         "200":
           description: OK
+        "503":
+          description: Service Unavailable
+          content:
+            text/plain:
+              schema:
+                type: string
         default:
           description: Internal Server Error
+  /signin:
+    post:
+      tags:
+        - auth
+      summary: Signin
+      description: Signin
+      operationId: signin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SigninRequest"
+      responses:
+        "200":
+          description: OK
+          headers:
+            Set-Cookie:
+              description: Session cookie
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SigninResponse"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        default:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /signout:
+    post:
+      tags:
+        - auth
+      summary: Signout
+      description: Signout
+      operationId: signout
+      parameters:
+        - name: session
+          in: cookie
+          required: false
+          schema:
+            type: string
+      responses:
+        "204":
+          description: No Content
+          headers:
+            Set-Cookie:
+              description: Cleared session cookie
+              schema:
+                type: string
+        default:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /me:
+    get:
+      tags:
+        - auth
+      summary: Me
+      description: Get current user
+      operationId: me
+      parameters:
+        - name: session
+          in: cookie
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MeResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        default:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+components:
+  schemas:
+    SigninRequest:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+          example: user@example.com
+        password:
+          type: string
+          minLength: 8
+          example: password123
+    SigninResponse:
+      type: object
+      required:
+        - user_id
+      properties:
+        user_id:
+          type: string
+          example: 018f1234-5678-7abc-8def-0123456789ab
+    MeResponse:
+      type: object
+      required:
+        - user_id
+      properties:
+        user_id:
+          type: string
+          example: 018f1234-5678-7abc-8def-0123456789ab
+    ErrorResponse:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          example: invalid email or password

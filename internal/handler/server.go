@@ -80,7 +80,7 @@ func (s *Server) Signin(ctx context.Context, request api.SigninRequestObject) (a
 		return api.Signin400JSONResponse{Message: "email and password are required"}, nil
 	}
 
-	mock, ok := mockUsers[string(body.Email)]
+	mock, ok := mockUsers[body.Email]
 	if !ok || mock.password != body.Password {
 		return api.Signin401JSONResponse{Message: "invalid email or password"}, nil
 	}

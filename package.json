@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "wrangler dev",
     "build": "go run github.com/syumai/workers/cmd/workers-assets-gen -mode=go && GOOS=js GOARCH=wasm go build -o ./build/app.wasm .",
-    "deploy": "node scripts/generate-wrangler.js && wrangler deploy --config wrangler.generated.jsonc"
+    "dev": "bash scripts/dev.sh",
+    "deploy": "bash scripts/deploy.sh"
   },
   "devDependencies": {
     "wrangler": "^4.123.0"

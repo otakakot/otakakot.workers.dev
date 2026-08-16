@@ -5,6 +5,7 @@ import (
 
 	"github.com/syumai/workers"
 	_ "github.com/syumai/workers/cloudflare/d1"
+	_ "github.com/syumai/workers/cloudflare/kv"
 
 	"github.com/otakakot/otakakot.workers.dev/internal/handler"
 )

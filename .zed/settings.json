@@ -1,0 +1,12 @@
+{
+  "lsp": {
+    "gopls": {
+      "binary": {
+        "env": {
+          "GOOS": "js",
+          "GOARCH": "wasm",
+        },
+      },
+    },
+  },
+}

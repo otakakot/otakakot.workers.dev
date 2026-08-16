@@ -15,13 +15,13 @@ if (!kvId) {
   process.exit(1);
 }
 
-const template = fs.readFileSync("wrangler.jsonc", "utf-8");
+const template = fs.readFileSync("wrangler.env.jsonc", "utf-8");
 const generated = template
   .replace(/<DATABASE_NAME>/g, dbName)
   .replace(/<DATABASE_ID>/g, dbId)
   .replace(/<KV_ID>/g, kvId)
   .replace(/<CORS_ALLOW_ORIGINS>/g, corsAllowOrigins);
 
-fs.writeFileSync("wrangler.generated.jsonc", generated);
+fs.writeFileSync("wrangler.jsonc", generated);
 
-console.log("Generated wrangler.generated.jsonc");
+console.log("Generated wrangler.jsonc");

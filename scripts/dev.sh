@@ -9,4 +9,4 @@ set +a
 
 node scripts/generate-wrangler.js
 
-wrangler dev --config wrangler.generated.jsonc
+wrangler dev

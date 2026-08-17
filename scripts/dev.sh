@@ -7,6 +7,6 @@ set -a
 source .env
 set +a
 
-node scripts/generate-wrangler.js
+node scripts/generate-wrangler.mjs
 
 wrangler dev

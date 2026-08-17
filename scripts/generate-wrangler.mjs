@@ -1,4 +1,4 @@
-const fs = require("fs");
+import fs from "fs";
 
 const dbName = process.env.DATABASE_NAME;
 const dbId = process.env.DATABASE_ID;

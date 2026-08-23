@@ -3,7 +3,7 @@ module github.com/otakakot/otakakot.workers.dev
 go 1.26.5
 
 require (
-	github.com/oapi-codegen/runtime v1.6.0
+	github.com/oapi-codegen/runtime v1.7.0
 	github.com/syumai/workers v0.33.0
 )
 

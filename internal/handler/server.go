@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/syumai/workers/cloudflare/kv"
+	"github.com/syumai/workers-go/cloudflare/kv"
 
 	"github.com/otakakot/otakakot.workers.dev/internal/api"
 )

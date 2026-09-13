@@ -1,10 +1,10 @@
 module github.com/otakakot/otakakot.workers.dev
 
-go 1.26.5
+go 1.27.1
 
 require (
 	github.com/oapi-codegen/runtime v1.7.0
-	github.com/syumai/workers v0.35.0
+	github.com/syumai/workers-go v0.35.0
 )
 
 require (
@@ -20,7 +20,6 @@ require (
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.2 // indirect
 	github.com/speakeasy-api/jsonpath v0.6.3 // indirect
 	github.com/speakeasy-api/openapi v1.24.0 // indirect
-	github.com/syumai/workers-go v0.35.0 // indirect
 	github.com/vmware-labs/yaml-jsonpath v0.3.2 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
 	golang.org/x/mod v0.38.0 // indirect

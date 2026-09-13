@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/syumai/workers/cloudflare"
+	"github.com/syumai/workers-go/cloudflare"
 )
 
 func CORS() func(http.Handler) http.Handler {

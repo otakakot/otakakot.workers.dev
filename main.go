@@ -3,9 +3,9 @@ package main
 import (
 	"net/http"
 
-	"github.com/syumai/workers"
-	_ "github.com/syumai/workers/cloudflare/d1"
-	_ "github.com/syumai/workers/cloudflare/kv"
+	"github.com/syumai/workers-go"
+	_ "github.com/syumai/workers-go/cloudflare/d1"
+	_ "github.com/syumai/workers-go/cloudflare/kv"
 
 	"github.com/otakakot/otakakot.workers.dev/internal/api"
 	"github.com/otakakot/otakakot.workers.dev/internal/handler"

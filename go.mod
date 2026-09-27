@@ -4,7 +4,7 @@ go 1.27.1
 
 require (
 	github.com/oapi-codegen/runtime v1.7.0
-	github.com/syumai/workers-go v0.35.0
+	github.com/syumai/workers-go v0.36.0
 )
 
 require (

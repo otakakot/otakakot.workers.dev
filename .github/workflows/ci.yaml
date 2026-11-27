@@ -23,17 +23,17 @@ jobs:
       contents: read
     steps:
       - name: Checkout
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
       - name: Setup Go
         id: setup-go
-        uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5 # v7.1.0
+        uses: actions/setup-go@v7.1.0
         with:
           go-version-file: go.mod
           cache: false
       - name: Restore Cache
-        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        uses: actions/cache/restore@v6.1.0
         with:
           path: |
             ~/.cache/go-build
@@ -50,7 +50,7 @@ jobs:
         run: go build ./...
       - name: Save Cache
         if: github.ref_name == 'main'
-        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        uses: actions/cache/save@v6.1.0
         with:
           path: |
             ~/.cache/go-build

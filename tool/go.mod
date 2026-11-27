@@ -1,6 +1,6 @@
 module github.com/otakakot/otakakot.workers.dev/tool
 
-go 1.27.1
+go 1.27.4
 
 tool github.com/oapi-codegen/oapi-codegen/v2/cmd/oapi-codegen
 

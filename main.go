@@ -13,8 +13,8 @@ import (
 )
 
 func main() {
-	server := handler.NewServer()
-	handler := api.NewStrictHandler(server, nil)
-	http.Handle("/", middleware.CORS()(api.Handler(handler)))
+	hdl := handler.NewHandler()
+	srv := api.NewStrictHandler(hdl, nil)
+	http.Handle("/", middleware.CORS()(api.Handler(srv)))
 	workers.Serve(nil) // use http.DefaultServeMux
 }
